@@ -36,3 +36,17 @@ func WithFields(f logrus.Fields) log.Logger {
 ```
 
 The `WithFields` func returns a struct that satisfies the Logger interface.
+
+Pre-configure a logger using WithFields and pass it as an option to a library.
+
+```go
+import "github.com/lib/foo"
+
+l := mylogger.WithFields(logrus.Fields{
+	"library": "github.com/lib/foo",
+})
+
+f := foo.New(
+	foo.WithLogger(l),
+)
+```
