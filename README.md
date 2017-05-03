@@ -8,6 +8,17 @@ Users want to standardise logging. Sometimes libraries log. We leave the underly
 while allowing libraries to log by simply expecting something that satisfies the Logger interface. This leaves 
 the user free to pre-configure structure, output, etc.
 
+## Interface
+
+The interface is minimalistic on purpose
+
+```go
+type Logger interface {
+    Log(v ...interface{})
+    Logf(format string, v ...interface{})
+}
+```
+
 ## Example
 
 Here's a logger that uses walrus and logs with predefined fields.
