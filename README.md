@@ -21,7 +21,7 @@ type Logger interface {
 
 ## Example
 
-Here's a logger that uses walrus and logs with predefined fields.
+Here's a logger that uses logrus and logs with predefined fields.
 
 ```go
 import (
