@@ -1,18 +1,17 @@
 package log
 
 import (
-	"fmt"
 	"testing"
 )
 
 type testLogger struct{}
 
 func (t *testLogger) Log(v ...interface{}) {
-	fmt.Print(v...)
+	return
 }
 
 func (t *testLogger) Logf(format string, v ...interface{}) {
-	fmt.Printf(format, v...)
+	return
 }
 
 func testLog(l Logger) {
