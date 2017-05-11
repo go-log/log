@@ -9,7 +9,7 @@ type Logger interface {
 
 var (
 	// The global default logger
-	DefaultLogger = &noOpLogger{}
+	DefaultLogger Logger = &noOpLogger{}
 )
 
 // noOpLogger is used as a placeholder for the default logger
