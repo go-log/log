@@ -27,3 +27,9 @@ func TestLogger(t *testing.T) {
 	testLog(l)
 	testLogf(l)
 }
+
+func TestNoOpLogger(t *testing.T) {
+	l := new(noOpLogger)
+	testLog(l)
+	testLogf(l)
+}
