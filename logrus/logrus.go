@@ -1,17 +1,12 @@
 package logrus
 
 import (
-	"github.com/go-log/log"
 	"github.com/sirupsen/logrus"
 )
 
 type logrusLogger struct {
 	*logrus.Entry
 }
-
-var (
-	_ log.Logger = New()
-)
 
 func (l *logrusLogger) Log(v ...interface{}) {
 	if l.Entry != nil {
@@ -29,7 +24,7 @@ func (l *logrusLogger) Logf(format string, v ...interface{}) {
 	}
 }
 
-func WithFields(f logrus.Fields) log.Logger {
+func WithFields(f logrus.Fields) *logrusLogger {
 	return &logrusLogger{logrus.WithFields(f)}
 }
 
