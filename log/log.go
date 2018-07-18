@@ -2,15 +2,9 @@ package log
 
 import (
 	golog "log"
-
-	"github.com/go-log/log"
 )
 
 type logLogger struct{}
-
-var (
-	_ log.Logger = New()
-)
 
 func (t *logLogger) Log(v ...interface{}) {
 	golog.Print(v...)
