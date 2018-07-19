@@ -21,43 +21,20 @@ type Logger interface {
 
 ## Example
 
-Here's a logger that uses logrus and logs with predefined fields.
+Pre-configure a logger using [`WithFields`][logrus.WithFields] and pass it as an option to a library:
 
 ```go
 import (
-	"github.com/go-log/log"
+	"github.com/go-log/log/print"
+	"github.com/lib/foo"
 	"github.com/sirupsen/logrus"
 )
 
-type logrusLogger struct {
-	*logrus.Entry
-}
-
-func (l *logrusLogger) Log(v ...interface{}) {
-	l.Entry.Print(v...)
-}
-
-func (l *logrusLogger) Logf(format string, v ...interface{}) {
-	l.Entry.Printf(format, v...)
-}
-
-func WithFields(f logrus.Fields) log.Logger {
-	return &logrusLogger{logrus.WithFields(f)}	
-}
-```
-
-The `WithFields` func returns a struct that satisfies the Logger interface.
-
-Pre-configure a logger using WithFields and pass it as an option to a library.
-
-```go
-import "github.com/lib/foo"
-
-l := mylogger.WithFields(logrus.Fields{
+logger := print.New(logrus.WithFields(logrus.Fields{
 	"library": "github.com/lib/foo",
-})
+}))
 
-f := foo.New(
-	foo.WithLogger(l),
-)
+f := foo.New(logger)
 ```
+
+[logrus.WithFields]: https://godoc.org/github.com/sirupsen/logrus#WithFields

@@ -1,33 +1,29 @@
+// Package logrus allows the creation of Loggers based on
+// logrus.StandardLogger().
+//
+// Deprecated: Use github.com/go-log/log/print instead.
 package logrus
 
 import (
+	"github.com/go-log/log"
+	"github.com/go-log/log/print"
 	"github.com/sirupsen/logrus"
 )
 
-type logrusLogger struct {
-	*logrus.Entry
+// WithFields creates a new logger based on logrus.WithFields().
+//
+// Deprecated: Replace with:
+//
+//   print.New(logrus.WithFields(f))
+func WithFields(f logrus.Fields) log.Logger {
+	return print.New(logrus.WithFields(f))
 }
 
-func (l *logrusLogger) Log(v ...interface{}) {
-	if l.Entry != nil {
-		l.Entry.Print(v...)
-	} else {
-		logrus.Print(v...)
-	}
-}
-
-func (l *logrusLogger) Logf(format string, v ...interface{}) {
-	if l.Entry != nil {
-		l.Entry.Printf(format, v...)
-	} else {
-		logrus.Printf(format, v...)
-	}
-}
-
-func WithFields(f logrus.Fields) *logrusLogger {
-	return &logrusLogger{logrus.WithFields(f)}
-}
-
-func New() *logrusLogger {
-	return &logrusLogger{}
+// WithFields creates a new logger based on logrus.StandardLogger().
+//
+// Deprecated: Replace with:
+//
+//   print.New(logrus.StandardLogger())
+func New() log.Logger {
+	return print.New(logrus.StandardLogger())
 }
