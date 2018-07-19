@@ -10,19 +10,19 @@ import (
 type info struct {}
 
 func (*info) Info(v ...interface{}) {
-	fmt.Print(v...)
+	fmt.Println(v...)
 }
 
 func (*info) Infof(format string, v ...interface{}) {
-	fmt.Printf(format, v...)
+	fmt.Printf(format+"\n", v...)
 }
 
 func testLog(l log.Logger) {
-	l.Log("test\n")
+	l.Log("test")
 }
 
 func testLogf(l log.Logger) {
-	l.Logf("%s", "test\n")
+	l.Logf("%s", "test")
 }
 
 func TestNew(t *testing.T) {

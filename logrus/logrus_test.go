@@ -8,11 +8,11 @@ import (
 )
 
 func testLog(l log.Logger) {
-	l.Log("test\n")
+	l.Log("test")
 }
 
 func testLogf(l log.Logger) {
-	l.Logf("%s", "test\n")
+	l.Logf("%s", "test")
 }
 
 func TestLogLogger(t *testing.T) {
