@@ -15,11 +15,11 @@ func (t *testLogger) Logf(format string, v ...interface{}) {
 }
 
 func testLog(l Logger) {
-	l.Log("test\n")
+	l.Log("test")
 }
 
 func testLogf(l Logger) {
-	l.Logf("%s\n", "test")
+	l.Logf("%s", "test")
 }
 
 func TestLogger(t *testing.T) {
