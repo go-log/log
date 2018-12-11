@@ -33,6 +33,6 @@ func New() *fmtLogger {
 
 // NewFromWriter creates a new fmt logger which writes to the given
 // writer.
-func NewFromWriter(writer: io.Writer) *fmtLogger {
+func NewFromWriter(writer io.Writer) *fmtLogger {
 	return &fmtLogger{writer: writer}
 }
