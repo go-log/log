@@ -15,7 +15,7 @@ func testLogf(l log.Logger) {
 }
 
 func TestLogLogger(t *testing.T) {
-	l := new(logLogger)
+	l := New()
 	testLog(l)
 	testLogf(l)
 }

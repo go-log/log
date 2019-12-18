@@ -6,7 +6,7 @@ import (
 	golog "log"
 )
 
-type logLogger struct{
+type logLogger struct {
 	log *golog.Logger
 }
 
@@ -20,6 +20,6 @@ func (t *logLogger) Logf(format string, v ...interface{}) {
 
 func New() *logLogger {
 	return &logLogger{
-		log: golog.New(os.Stderr, "", golog.LstdFlags | golog.Lshortfile),
+		log: golog.New(os.Stderr, "", golog.LstdFlags|golog.Lshortfile),
 	}
 }

@@ -8,7 +8,7 @@ type Printer interface {
 	Printf(format string, v ...interface{})
 }
 
-type logger struct{
+type logger struct {
 	printer Printer
 }
 

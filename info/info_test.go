@@ -7,7 +7,7 @@ import (
 	"github.com/go-log/log"
 )
 
-type info struct {}
+type info struct{}
 
 func (*info) Info(v ...interface{}) {
 	fmt.Println(v...)

@@ -8,7 +8,7 @@ type Info interface {
 	Infof(format string, v ...interface{})
 }
 
-type logger struct{
+type logger struct {
 	info Info
 }
 
